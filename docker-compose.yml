@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  jupyter:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/home/jovyan
+    ports:
+      - "8888:8888"
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: mypassword
+    ports:
+      - "5433:5432"
+
